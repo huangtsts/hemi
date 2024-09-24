@@ -145,8 +145,7 @@ main_menu() {
      download_and_setup
      setup_environment
      start_popmd 
+     running
 }
 
-# 启动主菜单
-echo "准备启动主菜单..."
 main_menu
