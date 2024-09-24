@@ -116,8 +116,7 @@ setup_environment() {
 # 功能3：启动 popmd（使用 screen）
 start_popmd() {
     cd "$HOME/heminetwork"
-    screen -dmS popmd_session ./popmd
-    echo "popmd test 已启动。你可以通过 'screen -r popmd_session' 查看运行中的进程。"
+    ./popmd
 }
 
 # 功能4：查看日志（使用 screen）
@@ -168,7 +167,6 @@ main_menu_generate_key() {
      download_and_setup_generate_key
      setup_environment
      start_popmd 
-     running
 }
 start_main(){
     main_menu
