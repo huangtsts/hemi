@@ -62,7 +62,7 @@ install_go() {
 }
 
 # 功能1：下载、解压缩并生成地址信息
-download_and_setup() {
+download_and_setup_generate_key() {
     wget https://github.com/hemilabs/heminetwork/releases/download/v0.4.3/heminetwork_v0.4.3_linux_amd64.tar.gz -O heminetwork_v0.4.3_linux_amd64.tar.gz
 
     TARGET_DIR="$HOME/heminetwork"
@@ -75,6 +75,22 @@ download_and_setup() {
 
     cd "$TARGET_DIR"
     ./keygen -secp256k1 -json -net="testnet" > ~/popm-address.json
+
+    echo "地址文件生成成功。"
+}
+
+download_and_setup() {
+    wget https://github.com/hemilabs/heminetwork/releases/download/v0.4.3/heminetwork_v0.4.3_linux_amd64.tar.gz -O heminetwork_v0.4.3_linux_amd64.tar.gz
+
+    TARGET_DIR="$HOME/heminetwork"
+    mkdir -p "$TARGET_DIR"
+
+    tar -xvf heminetwork_v0.4.3_linux_amd64.tar.gz -C "$TARGET_DIR"
+
+    mv "$TARGET_DIR/heminetwork_v0.4.3_linux_amd64/"* "$TARGET_DIR/"
+    rmdir "$TARGET_DIR/heminetwork_v0.4.3_linux_amd64"
+
+    cd "$TARGET_DIR"
 
     echo "地址文件生成成功。"
 }
@@ -147,5 +163,30 @@ main_menu() {
      start_popmd 
      running
 }
+main_menu_generate_key() {
+     install_screen
+     download_and_setup_generate_key
+     setup_environment
+     start_popmd 
+     running
+}
+start_main(){
+# 检查第一个参数  
+if [ "$1" -eq 1 ]; then  
+    # 如果第一个参数是1，则执行a程序  
+    echo "Executing generate program..."  
+    main_menu_generate_key
+  
+elif [ "$1" -eq 2 ]; then  
+    # 如果第一个参数是2，则执行b程序  
+    echo "Executing run program..."  
+    main_menu
+  
+else  
+    # 如果第一个参数既不是1也不是2，则打印错误信息  
+    echo "Invalid argument. Please use 1 or 2 as the first argument."  
+fi
+}
 
-main_menu
+start_main
+
