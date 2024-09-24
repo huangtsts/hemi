@@ -171,7 +171,9 @@ main_menu_generate_key() {
      running
 }
 start_main(){
+echo "start echo"
 echo $1
+echo "end echo"
 # 检查第一个参数  
 if [ "$1" -eq 'a' ]; then  
     # 如果第一个参数是1，则执行a程序  
@@ -185,7 +187,7 @@ elif [ "$1" -eq 'b' ]; then
   
 else  
     # 如果第一个参数既不是1也不是2，则打印错误信息  
-    echo "Invalid argument. Please use 1 or 2 as the first argument."  
+    echo "Invalid argument. Please use 1 or 2 as the first argument.$1"  
 fi
 }
 
