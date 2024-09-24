@@ -29,7 +29,7 @@ install_dependencies() {
 install_screen() {
     if ! command -v screen &> /dev/null; then
         echo "screen 未安装，正在安装..."
-        sudo apt update && sudo apt install -y screen
+        apt update && apt install -y screen
         echo "screen 安装完成。"
     fi
 }
@@ -102,6 +102,7 @@ start_popmd() {
     cd "$HOME/heminetwork"
     screen -dmS popmd_session ./popmd
     echo "popmd 已启动。你可以通过 'screen -r popmd_session' 查看运行中的进程。"
+    read -p "不退出，停着"
 }
 
 # 功能4：查看日志（使用 screen）
