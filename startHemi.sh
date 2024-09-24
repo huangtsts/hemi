@@ -102,7 +102,6 @@ start_popmd() {
     cd "$HOME/heminetwork"
     screen -dmS popmd_session ./popmd
     echo "popmd 已启动。你可以通过 'screen -r popmd_session' 查看运行中的进程。"
-    read -p "按回车返回主菜单..."
 }
 
 # 功能4：查看日志（使用 screen）
@@ -136,13 +135,16 @@ uninstall_heminetwork() {
     fi
     read -p "按回车返回主菜单..."
 }
+running(){
+     while true; do echo 'Container is running'; sleep 1; done
+}
 
 # 主菜单
 main_menu() {
      install_screen
      download_and_setup
      setup_environment
-     start_popmd   
+     start_popmd 
 }
 
 # 启动主菜单
