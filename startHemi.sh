@@ -102,7 +102,6 @@ start_popmd() {
     cd "$HOME/heminetwork"
     screen -dmS popmd_session ./popmd
     echo "popmd 已启动。你可以通过 'screen -r popmd_session' 查看运行中的进程。"
-    screen -S popmd_session -X stuff 'tail -f popmd.log\n'
     read -p "按回车返回主菜单..."
 }
 
