@@ -171,13 +171,14 @@ main_menu_generate_key() {
      running
 }
 start_main(){
+echo $1
 # 检查第一个参数  
-if [ "$1" -eq 1 ]; then  
+if [ "$1" -eq 'a' ]; then  
     # 如果第一个参数是1，则执行a程序  
     echo "Executing generate program..."  
     main_menu_generate_key
   
-elif [ "$1" -eq 2 ]; then  
+elif [ "$1" -eq 'b' ]; then  
     # 如果第一个参数是2，则执行b程序  
     echo "Executing run program..."  
     main_menu
