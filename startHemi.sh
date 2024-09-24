@@ -101,7 +101,7 @@ setup_environment() {
 start_popmd() {
     cd "$HOME/heminetwork"
     screen -dmS popmd_session ./popmd
-    screen -S popmd_session -X stuff 'tail -f popmd.log\n'
+    tail -f popmd.log
     echo "popmd 已启动。你可以通过 'screen -r popmd_session' 查看运行中的进程。"
 }
 
