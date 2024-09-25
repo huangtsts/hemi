@@ -164,10 +164,7 @@ main_menu() {
      running
 }
 main_menu_generate_key() {
-     install_screen
      download_and_setup_generate_key
-     setup_environment
-     start_popmd 
      running
 }
 start_main(){
